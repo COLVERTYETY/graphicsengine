@@ -1,0 +1,11 @@
+C:\Users\Nicolas\graphicsengine\bin\Debug\netcoreapp2.1\graphicsengine.deps.json
+C:\Users\Nicolas\graphicsengine\bin\Debug\netcoreapp2.1\graphicsengine.runtimeconfig.json
+C:\Users\Nicolas\graphicsengine\bin\Debug\netcoreapp2.1\graphicsengine.runtimeconfig.dev.json
+C:\Users\Nicolas\graphicsengine\bin\Debug\netcoreapp2.1\graphicsengine.dll
+C:\Users\Nicolas\graphicsengine\bin\Debug\netcoreapp2.1\graphicsengine.pdb
+C:\Users\Nicolas\graphicsengine\obj\Debug\netcoreapp2.1\graphicsengine.csprojAssemblyReference.cache
+C:\Users\Nicolas\graphicsengine\obj\Debug\netcoreapp2.1\graphicsengine.csproj.CoreCompileInputs.cache
+C:\Users\Nicolas\graphicsengine\obj\Debug\netcoreapp2.1\graphicsengine.AssemblyInfoInputs.cache
+C:\Users\Nicolas\graphicsengine\obj\Debug\netcoreapp2.1\graphicsengine.AssemblyInfo.cs
+C:\Users\Nicolas\graphicsengine\obj\Debug\netcoreapp2.1\graphicsengine.dll
+C:\Users\Nicolas\graphicsengine\obj\Debug\netcoreapp2.1\graphicsengine.pdb
