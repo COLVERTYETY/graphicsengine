@@ -1,0 +1,4 @@
+language: csharp
+solution: graphicsengine.csproj
+dotnet: 2.1.503
+script: dotnet run program.cs
