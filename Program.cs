@@ -9,7 +9,6 @@ namespace graphicsengine
             frame first = new frame();
             first.initialze(20,10,1);
             first.fullflip();
-            Console.ReadLine();
         }
     }
 }   
