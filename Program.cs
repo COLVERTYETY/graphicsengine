@@ -8,18 +8,15 @@ namespace graphicsengine
             frame first = new frame();
             first.initialze(60,30);
             frame.fullflip();
-            frame.Clear();
-            frame.fullflip();
-            Console.ReadLine();
             frame.fill('#');
             frame.fullflip();
             Console.ReadLine();
             frame.Clear();
-            frame.drawcircle(10,10,3);
+            frame.drawcircle(10,10,7);
             frame.fullflip();
             Console.ReadLine();
             frame.Clear();
-            polygon second  =  new polygon(3,3,5,5);  // Noncompliant
+            polygon second  =  new polygon(7,4,10,10);  // Noncompliant
             frame.renderpolygons();
             frame.fullflip();
             Console.ReadLine();
