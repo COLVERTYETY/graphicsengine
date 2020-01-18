@@ -20,13 +20,27 @@ namespace graphicsengine
         }
         
         public void fullflip(){
-            todisplay=display;
             Console.Clear();
             //Console.SetBufferSize(display.GetLength(0),display.GetLength(1));
             for(int x=0; x<display.GetLength(0);x++){
                 for(int y=0;y<display.GetLength(1);y++){
                     Console.SetCursorPosition(x,y);
-                    Console.Write(todisplay[x,y]);
+                    display[x,y]=todisplay[x,y];
+                    Console.Write(display[x,y]);
+                }
+            }
+        }
+        public void Clear(){
+            for(int i =0; i <todisplay.GetLength(0);i++){
+                for(int j=0; j<todisplay.GetLength(1);j++){
+                    todisplay[i,j]=emptychar;
+                }
+            }
+        }
+        public void fill(char filler){
+            for(int i =0; i <todisplay.GetLength(0);i++){
+                for(int j=0; j<todisplay.GetLength(1);j++){
+                    todisplay[i,j]=filler;
                 }
             }
         }
