@@ -48,12 +48,29 @@ namespace graphicsengine
             foreach( polygon poly in polygon.allthePolygon){
                 foreach(line li in poly.lines){
                     for( float i = li.getlower(); i<li.getuper(); i+=size){
-                        float y = li.gethorizontalintersection(i);
-                        int x = (int)(i/size);
+                        float x = li.gethorizontalintersection(i);
+                        int y = (int)(i/size);
+                        int xx = (int)(x);
+                        if( xx>=0 && xx<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
+                            todisplay[xx,y]=usedchar;
+                        }
+                    }
+                    for( float i = li.getleftmost(); i<li.getrightmost(); i+=size){
+                        float y = li.getverticalintersection(i);
                         int yy = (int)(y);
-                        if( x>=0 && x<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
+                        int x = (int)(i/size);
+                        if( x>=0 && x<todisplay.GetLength(0) && yy>=0 && yy<todisplay.GetLength(1)){
                             todisplay[x,yy]=usedchar;
                         }
+                    }
+                }
+            }
+        }
+        public void drawcircle(int xcenter, int ycenter, int radius){
+            for(int x=0; x<todisplay.GetLength(0);x++){
+                for(int y=0;y<todisplay.GetLength(1);y++){
+                    if(Math.Sqrt((x-xcenter)*(x-xcenter)+(y-ycenter)*(y-ycenter))<radius){
+                        todisplay[x,y]=usedchar;
                     }
                 }
             }
