@@ -8,7 +8,7 @@ namespace graphicsengine
             Console.WriteLine("Hello World!");
             Console.ReadLine();
             frame first = new frame();
-            first.initialze(60,30,1);
+            first.initialze(60,30);
             frame.fullflip();
             frame.Clear();
             frame.fullflip();
@@ -17,7 +17,7 @@ namespace graphicsengine
             frame.fullflip();
             Console.ReadLine();
             frame.Clear();
-            first.drawcircle(10,10,5);
+            frame.drawcircle(10,10,3);
             frame.fullflip();
             Console.ReadLine();
             frame.Clear();

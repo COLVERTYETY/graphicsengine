@@ -2,11 +2,11 @@ using System;
 namespace graphicsengine
 {
     class frame{
-        public const char usedchar='*';
-        public const char emptychar=' ';
-        public const int size =1;
-        public static char[,] display;
-        public static char[,] todisplay;
+        const char usedchar='*';
+        const char emptychar=' ';
+        const int size =1;
+        static char[,] display;
+        static char[,] todisplay;
         
         public void initialze(int width , int height){
             display=new char[width,height];
@@ -74,7 +74,7 @@ namespace graphicsengine
                 }
             }
         }
-        public void flip(){
+        public static void flip(){
             for(int x=0; x<display.GetLength(0);x++){
                 for(int y=0;y<display.GetLength(1);y++){
                     if(display[x,y]!=todisplay[x,y]){
