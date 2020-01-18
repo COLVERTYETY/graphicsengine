@@ -13,7 +13,7 @@ namespace graphicsengine
             }
             allthePolygon.Add(this);
         }
-        public polygon(int radius, int n){///regular polygon
+        public polygon(int radius, int n){///regular polygon //still requires offset implementation
             points = new point[n];
             int index=0;
             for(double i=0.0F;i<(2*Math.PI);i+=((2*Math.PI)/(Convert.ToDouble(n)))){
