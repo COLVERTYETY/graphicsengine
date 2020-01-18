@@ -6,12 +6,21 @@ namespace graphicsengine
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.ReadLine();
             frame first = new frame();
-            first.initialze(20,10,1);
+            first.initialze(40,20,1);
             first.fullflip();
-            polygon second  =  new polygon(2,3,5,5);
+            first.Clear();
+            first.fullflip();
+            Console.ReadLine();
+            first.fill('#');
+            first.fullflip();
+            Console.ReadLine();
+            first.Clear();
+            polygon second  =  new polygon(10,10,5,5);
             frame.renderpolygons();
-            first.flip();
+            first.fullflip();
+            Console.ReadLine();
         }
     }
 }   
