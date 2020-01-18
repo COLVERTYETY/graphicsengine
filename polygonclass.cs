@@ -3,6 +3,7 @@ using System.Collections.Generic;
 namespace graphicsengine
 {
     class polygon{
+        static List<polygon> allthePolygon;
         public List<line> lines;
         public point [] points;
         public polygon(point [] pointarray){
@@ -10,6 +11,7 @@ namespace graphicsengine
             for(int i = 0; i < (points.Length-1);i++){
                 lines.Add(new line(points[i],points[i+1]));
             }
+            allthePolygon.Add(this);
         }
         public polygon(int radius, int n){///regular polygon
             points = new point[n];
@@ -23,6 +25,7 @@ namespace graphicsengine
             for(int i = 0; i < (points.Length-1);i++){
                 lines.Add(new line(points[i],points[i+1]));
             }
+            allthePolygon.Add(this);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace graphicsengine
     class frame{
         public char usedchar='*';
         public char emptychar=' ';
-        public int size =10;
+        public int size =1;
         public char[,] display;
         public char[,] todisplay;
         
