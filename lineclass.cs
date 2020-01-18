@@ -10,41 +10,41 @@ namespace graphicsengine
             B = bb;
         }
         public float getuper(){
-            float res=B.y;
-            if(A.y>B.y){
-                res = A.y;
+            float res=B.Y;
+            if(A.Y>B.Y){
+                res = A.Y;
             }
             return res;
         }
         public float getlower(){
-            float res=B.y;
-            if(A.y<B.y){
-                res = A.y;
+            float res=B.Y;
+            if(A.Y<B.Y){
+                res = A.Y;
             }
             return res;
         }
         public float getrightmost(){
-            float res=B.x;
-            if(A.x>B.x){
-                res = A.x;
+            float res=B.X;
+            if(A.X>B.X){
+                res = A.X;
             }
             return res;
         }
         public float getleftmost(){
-            float res=B.x;
-            if(A.x<B.x){
-                res = A.x;
+            float res=B.X;
+            if(A.X<B.X){
+                res = A.X;
             }
             return res;
         }
-        public float gethorizontalintersection(int y){   ///should this return a point?
+        public float gethorizontalintersection(float y){   ///should this return a point?
             float dir = (getuper()-getlower())/(getrightmost()-getleftmost());
-            float cst = A.y-dir*A.x;
+            float cst = A.Y-dir*A.X;
             return  (y-cst)/dir;
         }
-        public float getverticalintersection(int x){   ///should this return a point?
+        public float getverticalintersection(float x){   ///should this return a point?
             float dir = (getuper()-getlower())/(getrightmost()-getleftmost());
-            float cst = A.y-dir*A.x;
+            float cst = A.Y-dir*A.X;
             return  (dir*x)+cst;
         }
     }

@@ -2,11 +2,11 @@ using System;
 namespace graphicsengine
 {
     class frame{
-        public char usedchar='*';
-        public char emptychar=' ';
-        public int size =1;
-        public char[,] display;
-        public char[,] todisplay;
+        public static char usedchar='*';
+        public static char emptychar=' ';
+        public static int size =1;
+        public static char[,] display;
+        public static char[,] todisplay;
         
         public void initialze(int width , int height, int newsize){
             display=new char[width,height];
@@ -27,6 +27,20 @@ namespace graphicsengine
                 for(int y=0;y<display.GetLength(1);y++){
                     Console.SetCursorPosition(x,y);
                     Console.Write(todisplay[x,y]);
+                }
+            }
+        }
+        public static void renderpolygons(){
+            foreach( polygon poly in polygon.allthePolygon){
+                foreach(line li in poly.lines){
+                    for( float i = li.getlower(); i<li.getuper(); i+=size){
+                        float y = li.gethorizontalintersection(i);
+                        int x = (int)(i/size);
+                        int yy = (int)(y);
+                        if( x>=0 && x<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
+                            todisplay[x,yy]=usedchar;
+                        }
+                    }
                 }
             }
         }

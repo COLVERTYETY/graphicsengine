@@ -1,11 +1,11 @@
 namespace graphicsengine
 {
     class point{///should this be a struct?
-        public float x;
-        public float y;
-        public point(float xx,float yy){
-            x=xx;
-            y=yy;
+        public float X;
+        public float Y;
+        public point(float x,float y){
+            X=x;
+            Y=y;
         }
     }
 }
