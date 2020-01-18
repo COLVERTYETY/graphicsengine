@@ -5,8 +5,6 @@ namespace graphicsengine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadLine();
             frame first = new frame();
             first.initialze(60,30);
             frame.fullflip();

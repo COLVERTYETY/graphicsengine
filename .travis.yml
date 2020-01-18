@@ -2,8 +2,4 @@ language: csharp
 solution: graphicsengine.csproj
 dotnet: 2.1.503
 script: 
-  - dotnet run lineclass.cs
-  - dotnet run windowclass.cs
-  - dotnet run polygonclass.cs
-  - dotnet run point.cs
-  
+  - dotnet build
