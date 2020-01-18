@@ -8,7 +8,7 @@ namespace graphicsengine
             Console.WriteLine("Hello World!");
             Console.ReadLine();
             frame first = new frame();
-            first.initialze(40,20,1);
+            first.initialze(60,30,1);
             first.fullflip();
             first.Clear();
             first.fullflip();
@@ -17,7 +17,11 @@ namespace graphicsengine
             first.fullflip();
             Console.ReadLine();
             first.Clear();
-            polygon second  =  new polygon(10,10,5,5);
+            first.drawcircle(10,10,5);
+            first.fullflip();
+            Console.ReadLine();
+            first.Clear();
+            polygon second  =  new polygon(3,3,5,5);
             frame.renderpolygons();
             first.fullflip();
             Console.ReadLine();
