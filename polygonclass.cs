@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace graphicsengine
 {
     class polygon{
-        static List<polygon> allthePolygon;
+        public static List<polygon> allthePolygon;
         public List<line> lines;
         public point [] points;
         public polygon(point [] pointarray){
@@ -13,7 +13,8 @@ namespace graphicsengine
             }
             allthePolygon.Add(this);
         }
-        public polygon(int radius, int n , int offsetx , int offsety){///regular polygon //still requires offset implementation
+        public polygon(int radius, int n , int offsetx , int offsety){///regular polygon 
+        
             points = new point[n];
             int index=0;
             for(double i=0.0F;i<(2*Math.PI);i+=((2*Math.PI)/(Convert.ToDouble(n)))){
