@@ -9,8 +9,8 @@ namespace graphicsengine
         static char[,] todisplay;
         
         public void initialze(int width , int height){
-            display=new char[width,height];
-            todisplay = new char[width,height];
+            display=new char[width,height];  // Noncompliant
+            todisplay = new char[width,height];  // Noncompliant
             for(int i=0; i<width;i++){
                 for(int j = 0;j<height;j++){
                     display[i,j]=emptychar;
@@ -25,7 +25,7 @@ namespace graphicsengine
                 for(int y=0;y<display.GetLength(1);y++){
                     Console.SetCursorPosition(x,y);
                     display[x,y]=todisplay[x,y];
-                    Console.Write(display[x,y]);
+                    Console.Write(display[x,y]);  // Noncompliant
                 }
             }
         }
@@ -80,7 +80,7 @@ namespace graphicsengine
                     if(display[x,y]!=todisplay[x,y]){
                         Console.SetCursorPosition(x,y);
                         Console.Write(todisplay[x,y]);
-                        display[x,y]=todisplay[x,y];
+                        display[x,y]=todisplay[x,y];  // Noncompliant
                     }
                 }
             }

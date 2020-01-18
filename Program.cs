@@ -19,7 +19,7 @@ namespace graphicsengine
             frame.fullflip();
             Console.ReadLine();
             frame.Clear();
-            polygon second  =  new polygon(3,3,5,5);
+            polygon second  =  new polygon(3,3,5,5);  // Noncompliant
             frame.renderpolygons();
             frame.fullflip();
             Console.ReadLine();
