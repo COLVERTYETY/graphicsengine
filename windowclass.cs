@@ -2,21 +2,21 @@ using System;
 namespace graphicsengine
 {
     class frame{
-        public static char usedchar='*';
-        public static char emptychar=' ';
-        public static int size =1;
+        public const char usedchar='*';
+        public const char emptychar=' ';
+        public const int size =1;
         public static char[,] display;
         public static char[,] todisplay;
         
-        public void initialze(int width , int height, int newsize){
+        public void initialze(int width , int height){
             display=new char[width,height];
+            todisplay = new char[width,height];
             for(int i=0; i<width;i++){
                 for(int j = 0;j<height;j++){
                     display[i,j]=emptychar;
+                    todisplay[i,j]=emptychar;
                 }
             }
-            todisplay=display;
-            size = newsize;
         }
         
         public static void fullflip(){
