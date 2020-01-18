@@ -9,21 +9,21 @@ namespace graphicsengine
             Console.ReadLine();
             frame first = new frame();
             first.initialze(60,30,1);
-            first.fullflip();
-            first.Clear();
-            first.fullflip();
+            frame.fullflip();
+            frame.Clear();
+            frame.fullflip();
             Console.ReadLine();
-            first.fill('#');
-            first.fullflip();
+            frame.fill('#');
+            frame.fullflip();
             Console.ReadLine();
-            first.Clear();
+            frame.Clear();
             first.drawcircle(10,10,5);
-            first.fullflip();
+            frame.fullflip();
             Console.ReadLine();
-            first.Clear();
+            frame.Clear();
             polygon second  =  new polygon(3,3,5,5);
             frame.renderpolygons();
-            first.fullflip();
+            frame.fullflip();
             Console.ReadLine();
         }
     }

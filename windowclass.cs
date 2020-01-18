@@ -19,9 +19,8 @@ namespace graphicsengine
             size = newsize;
         }
         
-        public void fullflip(){
+        public static void fullflip(){
             Console.Clear();
-            //Console.SetBufferSize(display.GetLength(0),display.GetLength(1));
             for(int x=0; x<display.GetLength(0);x++){
                 for(int y=0;y<display.GetLength(1);y++){
                     Console.SetCursorPosition(x,y);
@@ -30,14 +29,14 @@ namespace graphicsengine
                 }
             }
         }
-        public void Clear(){
+        public static void Clear(){
             for(int i =0; i <todisplay.GetLength(0);i++){
                 for(int j=0; j<todisplay.GetLength(1);j++){
                     todisplay[i,j]=emptychar;
                 }
             }
         }
-        public void fill(char filler){
+        public static void fill(char filler){
             for(int i =0; i <todisplay.GetLength(0);i++){
                 for(int j=0; j<todisplay.GetLength(1);j++){
                     todisplay[i,j]=filler;
@@ -66,7 +65,7 @@ namespace graphicsengine
                 }
             }
         }
-        public void drawcircle(int xcenter, int ycenter, int radius){
+        public static void drawcircle(int xcenter, int ycenter, int radius){
             for(int x=0; x<todisplay.GetLength(0);x++){
                 for(int y=0;y<todisplay.GetLength(1);y++){
                     if(Math.Sqrt((x-xcenter)*(x-xcenter)+(y-ycenter)*(y-ycenter))<radius){
