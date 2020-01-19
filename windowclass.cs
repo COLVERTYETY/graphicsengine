@@ -4,6 +4,7 @@ namespace graphicsengine
     class frame{
         const char usedchar='*';
         const char emptychar=' ';
+        public static int logline=0;
         static char[,] display;
         static char[,] todisplay;
         
@@ -42,9 +43,10 @@ namespace graphicsengine
                 }
             }
         }
-        public static void sidelog(string txt, int xoffset=0, int yoffset=0){
-            Console.SetCursorPosition(todisplay.GetLength(0),yoffset);
-            Console.Write(txt);
+        public static void sidelog(string txt, int xoffset=0, int yoffset=-1,int extrapadding=10){
+            if(yoffset==-1){yoffset=logline;logline++;if(logline>todisplay.GetLength(1)){logline=0;}}
+            Console.SetCursorPosition(todisplay.GetLength(0)+xoffset,yoffset);
+            Console.Write(txt.PadRight(extrapadding));
         }
         public static void renderline(line li){
             char thechar = usedchar;
@@ -57,6 +59,8 @@ namespace graphicsengine
                         int xx = (int)(x);
                         if( xx>=0 && xx<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
                             todisplay[xx,y]='1';
+                        } else {
+                            sidelog("limit error 1: " + Convert.ToString(x)+" "+ Convert.ToString(y));
                         }
                     }
                     for( float i = li.getleftmost(); i<li.getrightmost(); i++){
