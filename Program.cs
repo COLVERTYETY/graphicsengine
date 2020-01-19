@@ -7,13 +7,16 @@ namespace graphicsengine
         {
             frame first = new frame();
             first.initialze(60,30);
-            frame.fullflip();
+            float time = analyse.Measure(frame.fullflip);
+            frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             frame.fill('#');
-            frame.fullflip();
+            time = analyse.Measure(frame.flip);
+            frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             Console.ReadLine();
             frame.Clear();
             frame.drawcircle(10,10,7);
-            frame.fullflip();
+            time = analyse.Measure(frame.flip);
+            frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             Console.ReadLine();
             frame.Clear();
             line firstline = new line(new point(5,5),new point(5,10),'|');
@@ -28,12 +31,16 @@ namespace graphicsengine
             frame.renderline(fourthline);
             frame.renderline(diagonal);
             frame.renderline(seconddiagonal);
-            frame.fullflip();
+            time = analyse.Measure(frame.flip);
+            frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             Console.ReadLine();
             frame.Clear();
             new polygon(5,3,10,10);  // Noncompliant
+            new polygon(5,3,10,20);  // Noncompliant
+            new polygon(5,8,40,20);  // Noncompliant
             frame.renderpolygons();
-            frame.fullflip();
+            time = analyse.Measure(frame.flip);
+            frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             Console.ReadLine();
         }
     }
