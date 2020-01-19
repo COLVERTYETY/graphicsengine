@@ -3,10 +3,10 @@ using System.Diagnostics;
 namespace graphicsengine
 {
     class analyse{
-        public static float Measure(Delegate tomeasure){
+        public static float Measure(Action tomeasure){
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            //tomeasure.Invoke();
+            tomeasure();
             sw.Stop();
             return (float)sw.ElapsedMilliseconds;
         }
