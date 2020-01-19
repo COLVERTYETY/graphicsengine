@@ -42,7 +42,10 @@ namespace graphicsengine
                 }
             }
         }
-
+        public static void sidelog(string txt, int xoffset=0, int yoffset=0){
+            Console.SetCursorPosition(todisplay.GetLength(0),yoffset);
+            Console.Write(txt);
+        }
         public static void renderline(line li){
             char thechar = usedchar;
             if(li.spcecialchar!=' '){
