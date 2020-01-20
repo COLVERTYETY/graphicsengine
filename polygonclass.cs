@@ -14,13 +14,18 @@ namespace graphicsengine
             }
             allthePolygon.Add(this);
         }
-        public polygon(int radius, int n , double offsetx , double offsety, bool numbered = false){///regular polygon 
-        
+        public polygon(int radius, int n , double offsetx , double offsety, bool numbered = false,bool polar=false){///regular polygon 
             points.Clear();
+            if(polar){
+                for(int i=0;i<(n);i++){
+                points.Add(new point(i*2*Math.PI/n,radius,offsetx,offsety));
+            }
+            }else{
             for(int i=0;i<(n);i++){
                 double x = (double)( radius * Math.Cos((2*i*Math.PI)/n));
                 double y = (double)( radius * Math.Sin((2*i*Math.PI)/n));
                 points.Add(new point(x + offsetx ,y + offsety));
+            }
             }
             line temp;
             for(int i = 0; i < (points.Count-1);i++){

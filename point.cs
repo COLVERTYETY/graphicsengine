@@ -12,7 +12,13 @@ namespace graphicsengine
                 }
                 return res;
             }
-            set => xx = value;
+            set{
+                if(polar){
+                    xcenter = value;
+                } else{
+                    xx=value;
+                }
+            }
         }
         public double Y{
             get{
@@ -22,7 +28,13 @@ namespace graphicsengine
                 }
                 return res;
             }
-            set => yy = value;
+            set {
+                if(polar){
+                    ycenter = value;
+                } else{
+                    yy=value;
+                }
+            }
         }
         public bool polar;
         public double xcenter;
@@ -35,7 +47,7 @@ namespace graphicsengine
             yy=y;
             polar = false;
         }
-        public point(double Angle, double Distance, int Xcenter, int Ycenter){
+        public point(double Angle, double Distance, double Xcenter, double Ycenter){
             angle=Angle;
             distance=Distance;
             xcenter=Xcenter;

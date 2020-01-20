@@ -47,14 +47,14 @@ namespace graphicsengine
         }
         static void dynamic(){
             frame first = new frame();
-            first.initialze(300,150);
+            first.initialze(300,80);
             frame.fullflip();
-            polygon poly =new polygon(10,4,0,0);
-            new polygon(80,8,100,100);
+            //polygon poly =new polygon(10,4,0,0);
+            polygon polarpol = new polygon(50,8,100,50,false,true);
             frame.renderpolygons();
             frame.flip();
             frame.drawcircle(100,100,50,'0');
-            polygon triangle = new polygon(60,3,110,110);
+            polygon triangle = new polygon(60,3,110,50);
             frame.renderpolygons();
             frame.flip();
             while(true){
@@ -62,9 +62,12 @@ namespace graphicsengine
                     i.X++;
                     if(i.X>300){
                         i.X=0;
-                    frame.Clear();
                     }
                 }
+                foreach(point i in polarpol.points){
+                    i.angle+=0.1;
+                }
+                frame.Clear();
                 frame.renderpolygons();
                 frame.flip();
             }
