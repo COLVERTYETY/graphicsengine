@@ -3,8 +3,8 @@ namespace graphicsengine
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+        static void demo(){
+            
             frame first = new frame();
             first.initialze(100,30);
             float time = analyse.Measure(frame.fullflip);
@@ -44,6 +44,35 @@ namespace graphicsengine
             time = analyse.Measure(frame.flip);
             frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             Console.ReadLine();
+        }
+        static void dynamic(){
+            frame first = new frame();
+            first.initialze(300,150);
+            frame.fullflip();
+            polygon poly =new polygon(10,4,0,0);
+            new polygon(80,8,100,100);
+            frame.renderpolygons();
+            frame.flip();
+            frame.drawcircle(100,100,50,'0');
+            polygon triangle = new polygon(60,3,110,110);
+            frame.renderpolygons();
+            frame.flip();
+            while(true){
+                foreach(point i in triangle.points){
+                    i.X++;
+                    if(i.X>300){
+                        i.X=0;
+                    frame.Clear();
+                    }
+                }
+                frame.renderpolygons();
+                frame.flip();
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            dynamic();
         }
     }
 }   

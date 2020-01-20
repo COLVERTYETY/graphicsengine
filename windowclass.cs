@@ -61,7 +61,7 @@ namespace graphicsengine
                 if( xx>=0 && xx<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
                     todisplay[xx,y]=thechar;
                 } else {
-                    sidelog("limit error 1: " + Convert.ToString(x)+" "+ Convert.ToString(y));
+                    //sidelog("limit error 1: " + Convert.ToString(x)+" "+ Convert.ToString(y));
                 }}     
             }else {
                 for( double i = li.getleftmost().X; i<li.getrightmost().X; i++){
@@ -71,7 +71,7 @@ namespace graphicsengine
                     if( x>=0 && x<todisplay.GetLength(0) && yy>=0 && yy<todisplay.GetLength(1)){
                         todisplay[x,yy]=thechar;
                     } else {
-                        sidelog("limit error 2: " + Convert.ToString(x)+" "+ Convert.ToString(y));
+                        //sidelog("limit error 2: " + Convert.ToString(x)+" "+ Convert.ToString(y));
                     }
                 }
             }            
