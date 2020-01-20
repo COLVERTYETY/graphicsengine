@@ -45,14 +45,14 @@ namespace graphicsengine
             return res;
         }
         public double gethorizontalintersection(double y){   ///should this return a point?
-            double dir = (getrightmost().Y-getleftmost().Y)/(getrightmost().X-getleftmost().X);
-            double cst = A.Y-(dir*A.X);
-            double res = cst;
-            if(dir!=0){
+            double res=-1;
+            if(getrightmost().X-getleftmost().X==0){
+                res = getrightmost().X;
+            } else{
+                double dir = (getrightmost().Y-getleftmost().Y)/(getrightmost().X-getleftmost().X);
+                double cst = A.Y-(dir*A.X);
                 res = (y-cst)/dir;
             }
-            frame.sidelog("A.Y: "+Convert.ToString(A.Y)+" A.X: "+Convert.ToString(A.X) );
-            frame.sidelog("dir: "+Convert.ToString(dir)+"  cst: "+Convert.ToString(cst));
             return res ;
         }
         public double getverticalintersection(double x){   ///should this return a point?
