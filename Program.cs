@@ -36,8 +36,10 @@ namespace graphicsengine
             Console.ReadLine();
             frame.Clear();
             new polygon(5,3,10,10,true);  // Noncompliant
-            new polygon(5,3,10,20,true);  // Noncompliant
-            new polygon(10,10,60,20, true);  // Noncompliant
+            new polygon(5,4,10,20,true);  // Noncompliant
+            new polygon(5,5,20,20, true);  // Noncompliant
+            new polygon(5,6,20,10, true);  // Noncompliant
+            new polygon(10,5,40,20, true);  // Noncompliant
             frame.renderpolygons();
             time = analyse.Measure(frame.flip);
             frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
