@@ -44,7 +44,7 @@ namespace graphicsengine
             }
         }
         public static void sidelog(string txt, int xoffset=0, int yoffset=-1,int extrapadding=10){
-            if(yoffset==-1){yoffset=logline;logline++;if(logline>todisplay.GetLength(1)){logline=0;}}
+            if(yoffset==-1){yoffset=logline;logline++;/*if(logline>todisplay.GetLength(1)){logline=0;}*/}
             Console.SetCursorPosition(todisplay.GetLength(0)+xoffset,yoffset);
             Console.Write(txt.PadRight(extrapadding));
         }
@@ -53,24 +53,28 @@ namespace graphicsengine
             if(li.spcecialchar!=' '){
                 thechar = li.spcecialchar;
             }
-            for( float i = li.getlower(); i<li.getuper(); i++){
-                        float x = li.gethorizontalintersection(i);
-                        int y = (int)(i);
-                        int xx = (int)(x);
-                        if( xx>=0 && xx<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
-                            todisplay[xx,y]='1';
-                        } else {
-                            sidelog("limit error 1: " + Convert.ToString(x)+" "+ Convert.ToString(y));
-                        }
+            if ((li.getuper().Y-li.getlower().Y)>(li.getrightmost().X-li.getleftmost().X)){
+                for( double i = li.getlower().Y; i<li.getuper().Y; i++){
+                double x = li.gethorizontalintersection(i);
+                int y = (int)(i);
+                int xx = (int)(x);
+                if( xx>=0 && xx<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
+                    todisplay[xx,y]=thechar;
+                } else {
+                    sidelog("limit error 1: " + Convert.ToString(x)+" "+ Convert.ToString(y));
+                }}     
+            }else {
+                for( double i = li.getleftmost().X; i<li.getrightmost().X; i++){
+                    double y = li.getverticalintersection(i);
+                    int yy = (int)(y);
+                    int x = (int)(i);
+                    if( x>=0 && x<todisplay.GetLength(0) && yy>=0 && yy<todisplay.GetLength(1)){
+                        todisplay[x,yy]=thechar;
+                    } else {
+                        sidelog("limit error 2: " + Convert.ToString(x)+" "+ Convert.ToString(y));
                     }
-                    for( float i = li.getleftmost(); i<li.getrightmost(); i++){
-                        float y = li.getverticalintersection(i);
-                        int yy = (int)(y);
-                        int x = (int)(i);
-                        if( x>=0 && x<todisplay.GetLength(0) && yy>=0 && yy<todisplay.GetLength(1)){
-                            todisplay[x,yy]=thechar;
-                        }
-                    }
+                }
+            }            
         }
         public static void renderpolygons(){
             foreach( polygon poly in polygon.allthePolygon){

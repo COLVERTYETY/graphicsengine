@@ -11,47 +11,53 @@ namespace graphicsengine
             B = bb;
             spcecialchar = fillchar;
         }
-        public line( float x1, float y1, float x2, float y2, char fillchar=' '){
+        public line( double x1, double y1, double x2, double y2, char fillchar=' '){
             A = new point(x1,y1);
             B = new point(x2,y2);
             spcecialchar = fillchar;
         }
-        public float getuper(){
-            float res=B.Y;
+        public point getuper(){
+            point res=B;
             if(A.Y>B.Y){
-                res = A.Y;
+                res = A;
             }
             return res;
         }
-        public float getlower(){
-            float res=B.Y;
+        public point getlower(){
+            point res=B;
             if(A.Y<B.Y){
-                res = A.Y;
+                res = A;
             }
             return res;
         }
-        public float getrightmost(){
-            float res=B.X;
+        public point getrightmost(){
+            point res=B;
             if(A.X>B.X){
-                res = A.X;
+                res = A;
             }
             return res;
         }
-        public float getleftmost(){
-            float res=B.X;
+        public point getleftmost(){
+            point res=B;
             if(A.X<B.X){
-                res = A.X;
+                res = A;
             }
             return res;
         }
-        public float gethorizontalintersection(float y){   ///should this return a point?
-            float dir = (getuper()-getlower())/(getrightmost()-getleftmost());
-            float cst = A.Y-(dir*A.X);
-            return  (y-cst)/dir;
+        public double gethorizontalintersection(double y){   ///should this return a point?
+            double dir = (getrightmost().Y-getleftmost().Y)/(getrightmost().X-getleftmost().X);
+            double cst = A.Y-(dir*A.X);
+            double res = cst;
+            if(dir!=0){
+                res = (y-cst)/dir;
+            }
+            frame.sidelog("A.Y: "+Convert.ToString(A.Y)+" A.X: "+Convert.ToString(A.X) );
+            frame.sidelog("dir: "+Convert.ToString(dir)+"  cst: "+Convert.ToString(cst));
+            return res ;
         }
-        public float getverticalintersection(float x){   ///should this return a point?
-            float dir = (getuper()-getlower())/(getrightmost()-getleftmost());
-            float cst = A.Y-(dir*A.X);
+        public double getverticalintersection(double x){   ///should this return a point?
+            double dir = (getrightmost().Y-getleftmost().Y)/(getrightmost().X-getleftmost().X);
+            double cst = A.Y-(dir*A.X);
             return  (dir*x)+cst;
         }
     }

@@ -1,9 +1,9 @@
 namespace graphicsengine
 {
     class point{///should this be a struct?
-        public float X;
-        public float Y;
-        public point(float x,float y){
+        public double X;
+        public double Y;
+        public point(double x,double y){
             X=x;
             Y=y;
         }

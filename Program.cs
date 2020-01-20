@@ -6,7 +6,7 @@ namespace graphicsengine
         static void Main(string[] args)
         {
             frame first = new frame();
-            first.initialze(60,30);
+            first.initialze(100,30);
             float time = analyse.Measure(frame.fullflip);
             frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             frame.fill('#');
@@ -35,9 +35,9 @@ namespace graphicsengine
             frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             Console.ReadLine();
             frame.Clear();
-            new polygon(5,3,10,10);  // Noncompliant
-            new polygon(5,3,10,20);  // Noncompliant
-            new polygon(5,8,40,20);  // Noncompliant
+            new polygon(5,3,10,10,true);  // Noncompliant
+            new polygon(5,3,10,20,true);  // Noncompliant
+            new polygon(10,10,60,20, true);  // Noncompliant
             frame.renderpolygons();
             time = analyse.Measure(frame.flip);
             frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
