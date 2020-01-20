@@ -4,11 +4,11 @@ namespace graphicsengine
     class frame{
         const char usedchar='*';
         const char emptychar=' ';
-        public static int logline=0;
+        public static int logline;
         static char[,] display;
         static char[,] todisplay;
         
-        public void initialze(int width , int height){
+        public static void initialze(int width , int height){
             display=new char[width,height];  // Noncompliant
             todisplay = new char[width,height];  // Noncompliant
             for(int i=0; i<width;i++){
@@ -44,7 +44,7 @@ namespace graphicsengine
             }
         }
         public static void sidelog(string txt, int xoffset=0, int yoffset=-1,int extrapadding=10){
-            if(yoffset==-1){yoffset=logline;logline++;/*if(logline>todisplay.GetLength(1)){logline=0;}*/}
+            if(yoffset==-1){yoffset=logline;logline++;if(logline>todisplay.GetLength(1)){logline=0;}}
             Console.SetCursorPosition(todisplay.GetLength(0)+xoffset,yoffset);
             Console.Write(txt.PadRight(extrapadding));
         }
@@ -60,9 +60,8 @@ namespace graphicsengine
                 int xx = (int)(x);
                 if( xx>=0 && xx<todisplay.GetLength(0) && y>=0 && y<todisplay.GetLength(1)){
                     todisplay[xx,y]=thechar;
-                } else {
-                    //sidelog("limit error 1: " + Convert.ToString(x)+" "+ Convert.ToString(y));
-                }}     
+                }
+                }     
             }else {
                 for( double i = li.getleftmost().X; i<li.getrightmost().X; i++){
                     double y = li.getverticalintersection(i);
@@ -70,8 +69,6 @@ namespace graphicsengine
                     int x = (int)(i);
                     if( x>=0 && x<todisplay.GetLength(0) && yy>=0 && yy<todisplay.GetLength(1)){
                         todisplay[x,yy]=thechar;
-                    } else {
-                        //sidelog("limit error 2: " + Convert.ToString(x)+" "+ Convert.ToString(y));
                     }
                 }
             }            

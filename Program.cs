@@ -6,7 +6,7 @@ namespace graphicsengine
         static void demo(){
             
             frame first = new frame();
-            first.initialze(100,30);
+            frame.initialze(100,30);
             float time = analyse.Measure(frame.fullflip);
             frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
             frame.fill('#');
@@ -47,7 +47,7 @@ namespace graphicsengine
         }
         static void dynamic(){
             frame first = new frame();
-            first.initialze(300,80);
+            frame.initialze(300,80);
             frame.fullflip();
             //polygon poly =new polygon(10,4,0,0);
             polygon polarpol = new polygon(50,8,100,50,false,true);

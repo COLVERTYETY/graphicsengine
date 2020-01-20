@@ -22,8 +22,8 @@ namespace graphicsengine
             }
             }else{
             for(int i=0;i<(n);i++){
-                double x = (double)( radius * Math.Cos((2*i*Math.PI)/n));
-                double y = (double)( radius * Math.Sin((2*i*Math.PI)/n));
+                double x = ( radius * Math.Cos((2*i*Math.PI)/n));
+                double y = ( radius * Math.Sin((2*i*Math.PI)/n));
                 points.Add(new point(x + offsetx ,y + offsety));
             }
             }
