@@ -5,7 +5,6 @@ namespace graphicsengine
     {
         static void demo(){
             
-            frame first = new frame();
             frame.initialze(100,30);
             float time = analyse.Measure(frame.fullflip);
             frame.sidelog("elapsed time: "+Convert.ToString(time).PadRight(4));
@@ -46,15 +45,13 @@ namespace graphicsengine
             Console.ReadLine();
         }
         static void dynamic(){
-            frame first = new frame();
             frame.initialze(300,80);
             frame.fullflip();
-            //polygon poly =new polygon(10,4,0,0);
             polygon polarpol = new polygon(50,8,100,50,false,true);
             frame.renderpolygons();
             frame.flip();
             frame.drawcircle(100,100,50,'0');
-            polygon triangle = new polygon(60,3,110,50);
+            polygon triangle = new polygon(30,4,110,50);
             frame.renderpolygons();
             frame.flip();
             while(true){
@@ -67,11 +64,15 @@ namespace graphicsengine
                 foreach(point i in polarpol.points){
                     i.angle+=0.1;
                 }
-                frame.Clear();
-                frame.renderpolygons();
-                frame.flip();
+                double cleartime = analyse.Measure(frame.Clear);
+                double rendertime = analyse.Measure(frame.renderpolygons);
+                double fliptime = analyse.Measure(frame.flip);
+                frame.sidelog("cleartime:  "+Convert.ToString(cleartime).PadRight(3)+"ms",0,0);
+                frame.sidelog("rendertime: "+Convert.ToString(rendertime).PadRight(3)+"ms",0,1);
+                frame.sidelog("fliptime:   "+Convert.ToString(fliptime).PadRight(3)+"ms",0,2);
+                frame.sidelog("total:      "+Convert.ToString(cleartime+rendertime+fliptime).PadRight(3)+"ms",0,3);
+                frame.sidelog("framerate:  "+Convert.ToString(1000/(cleartime+rendertime+fliptime)).PadRight(3)+"fps   ",0,4);
             }
-
         }
         static void Main(string[] args)
         {

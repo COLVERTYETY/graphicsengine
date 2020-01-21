@@ -1,10 +1,10 @@
 using System;
 namespace graphicsengine
 {
-    class frame{
+    static class frame{
         const char usedchar='*';
         const char emptychar=' ';
-        public static int logline;
+        private static int logline;
         static char[,] display;
         static char[,] todisplay;
         
